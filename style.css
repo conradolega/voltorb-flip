@@ -14,3 +14,7 @@ body {
   margin: 10px;
   border: 2px solid #444444;
 }
+
+.grid .row .card .back {
+  transform: rotateY(180deg);
+}
