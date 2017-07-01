@@ -6,7 +6,7 @@ const board = Array(5).fill().map((el) => {
 
 const rows = document.querySelectorAll('.grid .row');
 rows.forEach((row, x) => {
-  const cards = row.querySelectorAll('.card');
+  const cards = row.querySelectorAll('.card .back');
   cards.forEach((card, y) => {
     card.innerHTML = board[x][y];
   });
