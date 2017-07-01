@@ -1,3 +1,16 @@
 body {
   background-color: #28a068;
 }
+
+.grid .row {
+  width: 536px;
+  margin: 0 auto;
+}
+
+.grid .row .card {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border: 2px solid #444444;
+}
