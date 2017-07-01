@@ -6,8 +6,11 @@ const board = Array(5).fill().map((el) => {
 
 const rows = document.querySelectorAll('.grid .row');
 rows.forEach((row, x) => {
-  const cards = row.querySelectorAll('.card .back');
+  const cards = row.querySelectorAll('.card');
   cards.forEach((card, y) => {
-    card.innerHTML = board[x][y];
+    card.querySelector('.back').innerHTML = board[x][y];
+    card.querySelector('.front').addEventListener('click', (e) => {
+      card.classList.add('flipped');
+    });
   });
 });
