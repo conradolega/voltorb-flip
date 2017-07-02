@@ -14,11 +14,11 @@ body {
   margin: 10px;
   border: 2px solid #444444;
   transform-style: preserve-3d;
+  transition: all 1s;
 }
 
 .grid .row .card.flipped {
   transform: rotateY(180deg);
-  transition: all 1s;
 }
 
 .grid .row .card .back {

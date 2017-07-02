@@ -11,6 +11,9 @@ function generateBoard() {
   const resultOverlay = document.querySelector('.result-overlay');
   resultOverlay.classList.add('hidden');
 
+  const flippedCards = document.querySelectorAll('.card.flipped');
+  flippedCards.forEach((card) => card.classList.remove('flipped'));
+
   const boardValues = generateBoardValues();
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
