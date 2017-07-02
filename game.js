@@ -8,6 +8,7 @@ function generateBoardValues() {
 function generateBoard() {
   let score = 0;
   const scoreSpan = document.querySelector('.score');
+  const resultOverlay = document.querySelector('.result-overlay');
   const boardValues = generateBoardValues();
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
@@ -17,10 +18,15 @@ function generateBoard() {
       card.querySelector('.back').innerHTML = value;
       card.querySelector('.front').addEventListener('click', (e) => {
         card.classList.add('flipped');
-        if (score === 0) {
-          score += value;
+        if (value == 0) {
+          score == 0;
+          resultOverlay.classList.remove('hidden');
         } else {
-          score *= value;
+          if (score === 0) {
+            score += value;
+          } else {
+            score *= value;
+          }
         }
         scoreSpan.innerHTML = score;
       });
