@@ -9,6 +9,8 @@ function generateBoard() {
   let score = 0;
   const scoreSpan = document.querySelector('.score');
   const resultOverlay = document.querySelector('.result-overlay');
+  resultOverlay.classList.add('hidden');
+
   const boardValues = generateBoardValues();
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
@@ -34,4 +36,6 @@ function generateBoard() {
   });
 }
 
+const resetButton = document.querySelector('.reset');
+resetButton.addEventListener('click', generateBoard);
 generateBoard();
