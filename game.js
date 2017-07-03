@@ -24,6 +24,14 @@ function generateBoard() {
     ];
   });
 
+  [0, 1, 2, 3, 4].forEach((i) => {
+    const columnValues = boardValues.map((row) => row[i])
+    boardTotals[i + 5] = [
+      columnValues.reduce((sum, value) => sum + value, 0),
+      columnValues.filter((value) => !value).length
+    ]
+  });
+
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
     const cards = row.querySelectorAll('.card');
