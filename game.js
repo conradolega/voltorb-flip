@@ -15,6 +15,15 @@ function generateBoard() {
   flippedCards.forEach((card) => card.classList.remove('flipped'));
 
   const boardValues = generateBoardValues();
+  const boardTotals = Array(10);
+
+  boardValues.forEach((row, i) => {
+    boardTotals[i] = [
+      row.reduce((sum, value) => sum + value, 0),
+      row.filter((value) => !value).length
+    ];
+  });
+
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
     const cards = row.querySelectorAll('.card');
