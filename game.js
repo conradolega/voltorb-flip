@@ -40,8 +40,8 @@ function generateBoard() {
       card.querySelector('.back').innerHTML = value;
       card.querySelector('.front').addEventListener('click', (e) => {
         card.classList.add('flipped');
-        if (value == 0) {
-          score == 0;
+        if (value === 0) {
+          score = 0;
           resultOverlay.classList.remove('hidden');
         } else {
           if (score === 0) {
