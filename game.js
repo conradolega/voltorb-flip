@@ -38,7 +38,7 @@ function generateBoard() {
     cards.forEach((card, y) => {
       const value = boardValues[x][y];
       card.querySelector('.back').innerHTML = value;
-      card.querySelector('.front').addEventListener('click', (e) => {
+      card.querySelector('.front').addEventListener('click', function listener(e) {
         card.classList.add('flipped');
         if (value === 0) {
           score = 0;
@@ -50,6 +50,7 @@ function generateBoard() {
             score *= value;
           }
         }
+        card.querySelector('.front').removeEventListener('click', listener);
         scoreSpan.innerHTML = score;
       });
     });
