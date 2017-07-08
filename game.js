@@ -1,3 +1,5 @@
+const boardListeners = {};
+
 function generateBoardValues() {
   const values = [0, 1, 2, 3];
   return Array(5).fill().map((el) => {
@@ -36,9 +38,9 @@ function generateBoard() {
   rows.forEach((row, x) => {
     const cards = row.querySelectorAll('.card');
     cards.forEach((card, y) => {
+      const currentListener = boardListeners[`${x}_${y}`];
       const value = boardValues[x][y];
-      card.querySelector('.back').innerHTML = value;
-      card.querySelector('.front').addEventListener('click', function listener(e) {
+      const listener = (e) => {
         card.classList.add('flipped');
         if (value === 0) {
           score = 0;
@@ -50,9 +52,14 @@ function generateBoard() {
             score *= value;
           }
         }
-        card.querySelector('.front').removeEventListener('click', listener);
         scoreSpan.innerHTML = score;
-      });
+      };
+      card.querySelector('.back').innerHTML = value;
+      card.querySelector('.front').addEventListener('click', listener);
+      if (currentListener) {
+        card.querySelector('.front').removeEventListener('click', currentListener);
+      }
+      boardListeners[`${x}_${y}`] = listener;
     });
   });
 }
