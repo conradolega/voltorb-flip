@@ -2,15 +2,19 @@ body {
   background-color: #29a46b;
 }
 
+.grid {
+  display: grid;
+  grid-template-rows: repeat(5, 100px);
+}
+
 .grid .row {
-  width: 536px;
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
   margin: 0 auto;
 }
 
 .grid .row .card {
   display: inline-block;
-  width: 80px;
-  height: 80px;
   margin: 10px;
   border: 2px solid #444444;
   transform-style: preserve-3d;
