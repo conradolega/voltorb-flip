@@ -37,6 +37,7 @@ function generateBoard() {
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
     const cards = row.querySelectorAll('.card:not(.sum)');
+    const totalCards = row.querySelectorAll('.sum');
     cards.forEach((card, y) => {
       const currentListener = boardListeners[`${x}_${y}`];
       const value = boardValues[x][y];
@@ -60,6 +61,13 @@ function generateBoard() {
         card.querySelector('.front').removeEventListener('click', currentListener);
       }
       boardListeners[`${x}_${y}`] = listener;
+    });
+    totalCards.forEach((card, y) => {
+      if (x < 5) {
+        card.innerHTML = boardTotals[x];
+      } else {
+        card.innerHTML = boardTotals[5 + y];
+      }
     });
   });
 }
