@@ -36,7 +36,7 @@ function generateBoard() {
 
   const rows = document.querySelectorAll('.grid .row');
   rows.forEach((row, x) => {
-    const cards = row.querySelectorAll('.card');
+    const cards = row.querySelectorAll('.card:not(.sum)');
     cards.forEach((card, y) => {
       const currentListener = boardListeners[`${x}_${y}`];
       const value = boardValues[x][y];

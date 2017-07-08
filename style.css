@@ -4,12 +4,12 @@ body {
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(5, 100px);
+  grid-template-rows: repeat(6, 100px);
 }
 
 .grid .row {
   display: grid;
-  grid-template-columns: repeat(5, 100px);
+  grid-template-columns: repeat(6, 100px);
   margin: 0 auto;
 }
 
@@ -17,8 +17,31 @@ body {
   display: inline-block;
   margin: 10px;
   border: 2px solid #444444;
+}
+
+.grid .row .card:not(.sum) {
   transform-style: preserve-3d;
   transition: all 1s;
+}
+
+.grid .row .card.sum.red {
+  background-color: #e07050;
+}
+
+.grid .row .card.sum.green {
+  background-color: #40a840;
+}
+
+.grid .row .card.sum.yellow {
+  background-color: #e8a038;
+}
+
+.grid .row .card.sum.blue {
+  background-color: #3090f8;
+}
+
+.grid .row .card.sum.purple {
+  background-color: #c060e0;
 }
 
 .grid .row .card.flipped {
